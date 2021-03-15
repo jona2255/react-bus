@@ -1,0 +1,26 @@
+Primero de todo, el context es lo mismo que los props, es un valor que le pasas a los descendientes.
+Los props, son usados para pasar datos a sus hijos y, aunque también se puedan seguir pasando de forma descendiente (entiendase como pasarselo al hijo, después al nieto, al bisnieto, etc...) no es recomendablepasar los props más allá de los hijos.
+Para mandar esos datos, en vez de props se usan context.
+Los context son un componente, por lo tanto, se declaran como tal en React.
+Para crear un context, lo hacemos de la siguiente forma:
+
+1. Creamos un archivo js con el nombre del context.
+2. Le añadimos las siguientes líneas:
+
+    import { createContext } from "react";
+
+    const BusquedaContext = createContext();
+    BusquedaContext.displayName = "BusquedaContext"; // Esta línea es opcional, solo sirve para que en el apartado "components" del inspector de elementos, te mustre el nombre del context
+
+    export default BusquedaContext;
+
+Una vez tengamos el archivo, se usa de la misma vez
+
+App(){
+
+  return (
+
+      <BusquedaContext.Provider value={{ parada }}>
+      </BusquedaContext.Provider>
+  )
+}
