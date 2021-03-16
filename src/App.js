@@ -8,6 +8,8 @@ import BusquedaContext from "./contexts/BusquedaContext";
 
 function App() {
   const [parada, setParada] = useState("");
+  const [linea, setLinea] = useState("");
+  const [lineasParada, setLineasParada] = useState("");
 
   // Como prueba y para no hacer demasiadas peticiones a la api, sacamos los datos de datosApi.json.
   /*
@@ -18,7 +20,7 @@ function App() {
 
   return (
     <ParadasContext.Provider value={{ datos }}>
-      <BusquedaContext.Provider value={{ parada, setParada }}>
+      <BusquedaContext.Provider value={{ parada, setParada, linea, setLinea, lineasParada, setLineasParada }}>
         <div className="contenedor">
           <DatosParadas />
           <Formularios />

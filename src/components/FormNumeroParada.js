@@ -1,14 +1,17 @@
 import { useContext, useState } from "react";
 import BusquedaContext from "../contexts/BusquedaContext";
+import ParadasContext from "../contexts/ParadasContext";
 
 const FormNumeroParada = () => {
-  const { parada, setParada } = useContext(BusquedaContext);
+  const { setParada, setLineasParada } = useContext(BusquedaContext);
+  const { datos } = useContext(ParadasContext);
   const [busqueda, setBusqueda] = useState("");
   const inputParada = (e) => {
     setBusqueda(e.target.value);
   };
   const submitParada = (e) => {
     e.preventDefault();
+    setLineasParada(datos.filter(paradaBus => paradaBus.stop === busqueda));
     setParada(busqueda);
   };
   return (
