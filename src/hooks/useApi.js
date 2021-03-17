@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
-const useApi = url => {
+const useApi = () => {
   const [datos, setDatos] = useState(null);
-  useEffect(() => {
+  const pedirDatos = useCallback((url) => {
     fetch(url)
       .then(resp => resp.json())
-      .then(datosAPI => {
-        setDatos(datosAPI.data.ibus);
-      });
-  }, [url]);
+      .then(datosAPI => setDatos(datosAPI.data.ibus));
+  }, []);
   return {
     datos
   };
