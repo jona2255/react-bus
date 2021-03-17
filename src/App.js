@@ -14,7 +14,16 @@ function App() {
   // Como prueba y para no hacer demasiadas peticiones a la api, sacamos los datos de datosApi.json.
   /*
   // https://api.tmb.cat/v1/ibus/stops/?app_id=4f77fb07&app_key=10bac298a6d75ba5ac9bbf27ddd58aee
-  const { datos } = useApi(`${process.env.REACT_APP_API_URL}${busqueda}?app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`);
+  const { datos: datosParadas, pedirDatos: pedirDatosParadas } = useApi();
+  const { datos, pedirDatos} = useApi();
+  useEffect(()=> {
+    pedirDatosParadas(`${process.env.REACT_APP_API_URL}?app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`);
+  },[pedirDatosParadas]);
+  useEffect(()=> {
+   if(datosParadas) {
+     pedirDatos(`${process.env.REACT_APP_API_URL}${busqueda}?app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`);
+   }
+  },[datosParadas, pedirDatos]);
  */
   const [datos, setDatos] = useState(datosApi.data.ibus);
 
