@@ -9,12 +9,19 @@
 
 # Fase II: Enrutado
 
-Prepara la app para que tenga dos rutas con dos páginas distintas. Una ruta será /parada y presentará una página con lo que tenías hecho hasta ahora. La otra ruta será /linea/X (siendo X un número de parada), y presentará una página con información de una línea y sus paradas.
+(hecho) Prepara la app para que tenga dos rutas con dos páginas distintas. Una ruta será /parada y presentará una página con lo que tenías hecho hasta ahora. La otra ruta será /linea/X (siendo X un número de parada), y presentará una página con información de una línea y sus paradas.
 
-- En el archivo App.js tienes el nuevo JSX para la página de línea.
+- (hecho) En el archivo App.js tienes el nuevo JSX para la página de línea.
 - (hecho) Actualiza también el CSS, que hay código nuevo.
 - Haz que cuando el usuario haga clic en el número de línea que aparece en el display, vaya a la página de información de línea.
-- En la nueva página, si se hace clic en "Volver" debe volver a la página principal de parada.
-- Prepara también una página para cuando la ruta solicitada no se encuentre.
+- (hecho) En la nueva página, si se hace clic en "Volver" debe volver a la página principal de parada.
+- (hecho) Prepara también una página para cuando la ruta solicitada no se encuentre.
 
 Para ver un mapa de Google Maps a partir de unas coordenadas: http://maps.google.com/maps?z=19&t=m&q=loc:COORDENADA1+COORDENADA2
+
+Falta: Que la página muestre los valores de la linea que se busca y sus paradas.
+      Ej. En el título tiene que salir el número de la linea(Las datos que se ven son de prueba, guiate un poco por eso).
+      Falta ponerle las cordenadas del google maps en función de la parada.
+      El punto que no está marcado como hecho también falta.
+      (Cuando tengas todo, avísame, que me gustaría cambiar un poquito cosas de las apis y de los datos que se reciben)
+
