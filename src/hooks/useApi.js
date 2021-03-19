@@ -5,10 +5,14 @@ const useApi = () => {
   const pedirDatos = useCallback((url) => {
     fetch(url)
       .then(resp => resp.json())
-      .then(datosAPI => setDatos(datosAPI.data.ibus));
+      .then(datosAPI => url.includes("ibus")
+        ? setDatos(datosAPI.data.ibus)
+        : setDatos(datosAPI.features)
+      );
   }, []);
   return {
-    datos
+    datos,
+    pedirDatos
   };
 };
 
