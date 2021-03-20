@@ -14,6 +14,7 @@ const FormNumeroParada = () => {
     setLineasParada(datos.filter(paradaBus => paradaBus.stop === busqueda));
     setParada(busqueda);
   };
+
   return (
     <form onSubmit={submitParada}>
       <label htmlFor="num-parada">Parada nº: </label>
