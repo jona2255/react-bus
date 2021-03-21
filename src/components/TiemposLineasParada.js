@@ -6,11 +6,9 @@ const TiemposLineasParadas = () => {
   const { parada, lineasParada } = useContext(BusquedaContext);
   const { datos } = useContext(ParadasContext);
   const [busqueda, setBusqueda] = useState("");
-
   const [linea, setLinea] = useState("");
   const [destino, setDestino] = useState("");
   const [tiempo, setTiempo] = useState("");
-
   useEffect(() => {
     let i = 0;
     let tempo;

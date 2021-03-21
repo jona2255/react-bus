@@ -6,15 +6,24 @@ const FormNumeroParada = () => {
   const { setParada, setLineasParada } = useContext(BusquedaContext);
   const { datos } = useContext(ParadasContext);
   const [busqueda, setBusqueda] = useState("");
+
   const inputParada = (e) => {
     setBusqueda(e.target.value);
   };
   const submitParada = (e) => {
     e.preventDefault();
-    setLineasParada(datos.filter(paradaBus => paradaBus.stop === busqueda));
     setParada(busqueda);
+    submitLineasParada();
   };
-
+  const submitLineasParada = () => {
+    if (datos[0].stop === null || datos[0].stop === undefined) {
+      console.log(datos);
+      setLineasParada(datos);
+    } else {
+      console.log(datos[0].stop);
+      setLineasParada(datos.filter(paradaBus => paradaBus.stop === busqueda));
+    }
+  };
   return (
     <form onSubmit={submitParada}>
       <label htmlFor="num-parada">Parada nº: </label>
