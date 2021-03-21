@@ -1,10 +1,8 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import BusquedaContext from "../contexts/BusquedaContext";
-import ParadasContext from "../contexts/ParadasContext";
 
 const TiemposLineasParadas = () => {
   const { parada, lineasParada } = useContext(BusquedaContext);
-  const { datos } = useContext(ParadasContext);
   const [busqueda, setBusqueda] = useState("");
 
   const [linea, setLinea] = useState("");
