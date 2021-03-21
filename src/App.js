@@ -10,11 +10,13 @@ import BusquedaContext from "./contexts/BusquedaContext";
 import Linea from "./paginas/Linea";
 import NotFound from "./paginas/NotFound";
 import Parada from "./paginas/Parada";
+import TiempoContext from "./contexts/TiempoContext";
 
 
 function App() {
   const [parada, setParada] = useState("");
   const [linea, setLinea] = useState("");
+  const [tiempo, setTiempo] = useState("");
   const [lineasParada, setLineasParada] = useState("");
 
   // Como prueba y para no hacer demasiadas peticiones a la api, sacamos los datos de datosApi.json.
@@ -41,20 +43,22 @@ function App() {
       <main>
         <ParadasContext.Provider value={{ datos, datosCompletosLinea }}>
           <BusquedaContext.Provider value={{ parada, setParada, linea, setLinea, lineasParada, setLineasParada }}>
-            <Switch>
-              <Route path="/parada" exact>
-                <Parada />
-              </Route>
-              <Route path="/linea/:id">
-                <Linea />
-              </Route>
-              <Route path="/" exact>
-                <Redirect to="/parada" />
-              </Route>
-              <Route path="*" exact>
-                <NotFound />
-              </Route>
-            </Switch>
+            <TiempoContext.Provider value={{ tiempo, setTiempo }}>
+              <Switch>
+                <Route path="/parada" exact>
+                  <Parada />
+                </Route>
+                <Route path="/linea/:id">
+                  <Linea />
+                </Route>
+                <Route path="/" exact>
+                  <Redirect to="/parada" />
+                </Route>
+                <Route path="*" exact>
+                  <NotFound />
+                </Route>
+              </Switch>
+            </TiempoContext.Provider>
           </BusquedaContext.Provider>
         </ ParadasContext.Provider >
       </main>
