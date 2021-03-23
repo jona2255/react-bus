@@ -14,7 +14,7 @@ const FormTiempoLineas = () => {
       <select id="tiempo-linea" onChange={({ target: { value } }) => {
         setLinea(value);
 
-        setTiempo(datos.filter(paradaBus => paradaBus.stop === parada && paradaBus.line === value)[0].["text-ca"]);
+        setTiempo(datos.filter(paradaBus => paradaBus.stop === parada && paradaBus.line === value)[0]["text-ca"]);
 
       }}>
         <option>Elige línea</option>
